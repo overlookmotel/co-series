@@ -73,7 +73,7 @@ var fn = function(num) {
 order = [];
 Promise.all([1, 2, 3].map(fn));
 
-// order = ['start 1', 'start 2', 'start 3', 'end 1', 'end2', 'end 3', 'finished [10, 20, 30]']
+// order = ['start 1', 'start 2', 'start 3', 'end 1', 'end2', 'end 3']
 ```
 
 ```js
@@ -82,7 +82,7 @@ var series = require('co-series');
 // execute function in series
 Promise.all([1, 2, 3].map(series(fn)));
 
-// order = ['start 1', 'end 1', 'start 2', 'end2', 'start 3', 'end 3', 'finished [10, 20, 30]']
+// order = ['start 1', 'end 1', 'start 2', 'end2', 'start 3', 'end 3']
 ```
 
 ## Tests
