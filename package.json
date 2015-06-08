@@ -1,0 +1,48 @@
+{
+  "name": "co-series",
+  "version": "0.0.0",
+  "description": "Run in series with co",
+  "main": "./lib/",
+  "author": {
+    "name": "Overlook Motel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/overlookmotel/co-series.git"
+  },
+  "bugs": {
+    "url": "https://github.com/overlookmotel/co-series/issues"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "chai": "^2.3.0",
+	"jshint": "^2.7.0",
+    "istanbul": "^0.3.14",
+    "coveralls": "^2.11.2"
+  },
+  "keywords": [
+    "co",
+    "series",
+    "serial",
+    "promise",
+    "generator",
+    "parallel",
+    "wrap"
+  ],
+  "scripts": {
+    "test": "make test",
+    "cover": "make cover"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "readmeFilename": "README.md",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://github.com/overlookmotel/co-series/raw/master/License"
+    }
+  ]
+}
