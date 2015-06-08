@@ -1,13 +1,11 @@
 // --------------------
 // co-series module
-// Tests
+// Generator tests
 // --------------------
 
 // modules
 var chai = require('chai'),
 	expect = chai.expect,
-	Promise = require('native-or-bluebird'),
-	generatorSupported = require('generator-supported'),
 	series = require('../lib/');
 
 // init
@@ -16,17 +14,17 @@ chai.config.includeStack = true;
 // tests
 
 /* jshint expr: true */
+/* jshint esnext: true */
 /* global describe, it */
 
-describe('Function', function() {
+describe('Generator', function() {
 	it('runs serially', function() {
 		var order = [];
-		var fn = series(function(i) {
+		var fn = series(function*(i) {
 			order.push('start' + i);
-			return Promise.resolve().then(function() {
-				order.push('end' + i);
-				return i * 10;
-			});
+			yield Promise.resolve();
+			order.push('end' + i);
+			return i * 10;
 		});
 
 		var res = [1, 2, 3].map(fn);
@@ -38,11 +36,9 @@ describe('Function', function() {
 	});
 
 	it('passes this context', function() {
-		var fn = series(function(i) {
-			var j = this.j;
-			return Promise.resolve().then(function() {
-				return i + '-' + j;
-			});
+		var fn = series(function*(i) {
+			yield Promise.resolve();
+			return i + '-' + this.j;
 		});
 
 		var x = {fn: fn, j: 9};
@@ -52,11 +48,3 @@ describe('Function', function() {
 		});
 	});
 });
-
-if (generatorSupported) {
-	require('./generators.test.inc.js');
-} else {
-	describe('Generator', function() {
-		it('works');
-	});
-}

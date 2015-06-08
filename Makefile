@@ -13,9 +13,13 @@ teaser:
 ifeq (true,$(COVERAGE))
 test:
 	make coveralls
+test-harmony:
+	make coveralls-harmony
 else
 test:
 	make tests
+test-harmony:
+	make tests-harmony
 endif
 
 tests:
@@ -25,12 +29,19 @@ tests:
 		make jshint && make teaser && ./node_modules/mocha/bin/mocha --check-leaks --colors -t 10000 --reporter $(REPORTER) $(TESTS); \
 	fi
 
+tests-harmony:
+	@if [ "$$GREP" ]; then \
+		make jshint && make teaser && ./node_modules/mocha/bin/mocha --harmony --check-leaks --colors -t 10000 --reporter $(REPORTER) -g "$$GREP" $(TESTS); \
+	else \
+		make jshint && make teaser && ./node_modules/mocha/bin/mocha --harmony --check-leaks --colors -t 10000 --reporter $(REPORTER) $(TESTS); \
+	fi
+
 jshint:
 	./node_modules/.bin/jshint lib test
 
 cover:
 	make teaser; \
-	./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec $(TESTS); \
+	node --harmony node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec $(TESTS); \
 	rm -rf coverage
 
 coveralls:
@@ -38,4 +49,10 @@ coveralls:
 	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; \
 	rm -rf ./coverage
 
-.PHONY: test tests cover coveralls
+# coveralls-harmony does not work
+coveralls-harmony:
+	node --harmony node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --harmony --report lcovonly -- -R spec; \
+	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; \
+	rm -rf ./coverage
+
+.PHONY: test test-harmony tests tests-harmony cover coveralls coveralls-harmony

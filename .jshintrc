@@ -58,6 +58,7 @@
   "node":true,
 
   "globals": {
+    "Promise":true
   },
 
   "predef": [

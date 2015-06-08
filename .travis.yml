@@ -1,5 +1,5 @@
 script:
-  - "make test"
+  - "make $TEST_SUITE"
 
 language: node_js
 
@@ -7,17 +7,25 @@ node_js:
   - "0.10"
   - "0.12"
 
-branches:
-  only:
-    - master
-    - dev
+env:
+  - TEST_SUITE=test
+  - TEST_SUITE=test-harmony
 
 matrix:
   fast_finish: true
   include:
-    - node_js: "0.10"
-      env: COVERAGE=true
+    - node_js: "0.12"
+      env:
+        - TEST_SUITE=test-harmony
+        - COVERAGE=true
   allow_failures:
-    - env: COVERAGE=true
+    - env:
+        - TEST_SUITE=test-harmony
+        - COVERAGE=true
+
+branches:
+  only:
+    - master
+    - dev
 
 sudo: false
