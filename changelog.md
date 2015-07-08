@@ -7,3 +7,7 @@
 ## 0.0.2
 
 * README update
+
+## Next
+
+* Update bluebird dependency
