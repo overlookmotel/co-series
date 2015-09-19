@@ -1,6 +1,6 @@
 {
   "name": "co-series",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Run in series with co",
   "main": "./lib/",
   "author": {

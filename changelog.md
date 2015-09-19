@@ -12,7 +12,7 @@
 
 * Update bluebird dependency
 
-## Next
+## 1.0.0
 
 * Add `.use(Promise)` method
 * Remove redundant native-or-bluebird dependency
