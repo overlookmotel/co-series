@@ -6,6 +6,7 @@
 // modules
 var chai = require('chai'),
 	expect = chai.expect,
+	Promise = require('bluebird'),
 	series = require('../lib/');
 
 // init

@@ -85,6 +85,22 @@ Promise.all([1, 2, 3].map(series(fn)));
 // order = ['start 1', 'end 1', 'start 2', 'end2', 'start 3', 'end 3']
 ```
 
+### `series.use(Promise)`
+
+Creates a new instance of `co-series`, which uses the Promise implementation provided.
+
+```js
+var Bluebird = require('bluebird');
+var series = require('co-series').use(Bluebird);
+
+// now use `co-series` in the usual way
+var fn = series(function() {});
+
+var p = fn();
+
+console.log(p instanceof Bluebird); // true
+```
+
 ## Tests
 
 Use `npm test` to run the tests or `npm run test-harmony` to include generator tests.

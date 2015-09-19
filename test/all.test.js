@@ -7,6 +7,7 @@
 var chai = require('chai'),
 	expect = chai.expect,
 	Promise = require('bluebird'),
+	Q = require('q'),
 	generatorSupported = require('generator-supported'),
 	series = require('../lib/');
 
@@ -60,3 +61,22 @@ if (generatorSupported) {
 		it('works');
 	});
 }
+
+describe('use method uses supplied promise implementation', function() {
+	it('with function', function() {
+		var useSeries = series.use(Q);
+
+		var fn = useSeries(function() {
+			return Promise.resolve();
+		});
+
+		var p = fn();
+		expect(p).not.to.be.instanceof(Promise);
+	});
+
+	if (generatorSupported) {
+		require('./generatorsUse.test.inc.js');
+	} else {
+		it('with generator');
+	}
+});
