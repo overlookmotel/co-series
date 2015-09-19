@@ -11,3 +11,7 @@
 ## 0.1.0
 
 * Update bluebird dependency
+
+## Next
+
+* Update dev dependencies
