@@ -6,7 +6,7 @@
 // modules
 var chai = require('chai'),
 	expect = chai.expect,
-	Promise = require('native-or-bluebird'),
+	Promise = require('bluebird'),
 	generatorSupported = require('generator-supported'),
 	series = require('../lib/');
 
