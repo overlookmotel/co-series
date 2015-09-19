@@ -15,4 +15,5 @@
 ## Next
 
 * Remove redundant native-or-bluebird dependency
+* Update bluebird dependency
 * Update dev dependencies
