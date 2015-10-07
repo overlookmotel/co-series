@@ -16,7 +16,7 @@
   "dependencies": {
     "co-use": "^1.1.0",
     "bluebird": "^2.10.0",
-    "generator-supported": "0.0.1"
+    "is-generator": "^1.0.2"
   },
   "devDependencies": {
     "mocha": "^2.3.2",
@@ -24,6 +24,7 @@
     "jshint": "^2.8.0",
     "istanbul": "^0.3.19",
     "coveralls": "^2.11.4",
+    "generator-supported": "0.0.1",
     "q": "^1.4.1"
   },
   "keywords": [
