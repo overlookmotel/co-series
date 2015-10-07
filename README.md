@@ -85,6 +85,30 @@ Promise.all([1, 2, 3].map(series(fn)));
 // order = ['start 1', 'end 1', 'start 2', 'end2', 'start 3', 'end 3']
 ```
 
+### Errors/rejections
+
+If an error is thrown or the promise returned by `fn` is rejected, further iterations are cancelled.
+
+### Execution order
+
+On the first iteration, `fn` is called immediately. Thereafter, each iteration awaits the previous iteration to complete.
+
+```js
+var promise = Promise.all([1, 2, 3].map(series(fn)));
+order.push('sync');
+
+// order = ['start 1', 'sync', 'end 1', 'start 2', 'end2', 'start 3', 'end 3']
+```
+
+If you wish the first iteration to execute on the next tick, pass option `immediate` as `false`
+
+```js
+var promise = Promise.all([1, 2, 3].map(series(fn, {immediate: false})));
+order.push('sync');
+
+// order = ['sync', 'start 1', 'end 1', 'start 2', 'end2', 'start 3', 'end 3']
+```
+
 ### `series.use(Promise)`
 
 Creates a new instance of `co-series`, which uses the Promise implementation provided.
@@ -96,9 +120,9 @@ var series = require('co-series').use(Bluebird);
 // now use `co-series` in the usual way
 var fn = series(function() {});
 
-var p = fn();
+var promise = fn();
 
-console.log(p instanceof Bluebird); // true
+console.log(promise instanceof Bluebird); // true
 ```
 
 ## Tests
@@ -108,7 +132,7 @@ Use `npm run cover` to check coverage.
 
 ## Changelog
 
-See changelog.md
+See [changelog.md](https://github.com/overlookmotel/co-series/blob/master/changelog.md)
 
 ## Issues
 

@@ -24,6 +24,7 @@
 * Execute first iteration immediately
 * `immediate` option
 * Only use `co.wrap` on generators
+* README
 
 Breaking changes:
 
