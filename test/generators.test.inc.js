@@ -29,10 +29,11 @@ describe('Generator', function() {
 		});
 
 		var res = [1, 2, 3].map(fn);
+		order.push('sync');
 
 		return res[2].then(function(res) {
 			expect(res).to.equal(30);
-			expect(order).to.deep.equal(['start1', 'end1', 'start2', 'end2', 'start3', 'end3']);
+			expect(order).to.deep.equal(['start1', 'sync', 'end1', 'start2', 'end2', 'start3', 'end3']);
 		});
 	});
 

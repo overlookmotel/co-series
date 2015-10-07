@@ -21,4 +21,9 @@
 
 ## Next
 
+* Execute first iteration immediately
 * Only use `co.wrap` on generators
+
+Breaking changes:
+
+* Function is called immediately on first iteration (previously it executed on next tick)
