@@ -19,7 +19,7 @@
 * Update bluebird dependency
 * Update dev dependencies
 
-## Next
+## 2.0.0
 
 * Execute first iteration immediately
 * `immediate` option
