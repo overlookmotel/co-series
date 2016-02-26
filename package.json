@@ -23,7 +23,7 @@
     "chai": "^3.2.0",
     "jshint": "^2.8.0",
     "istanbul": "^0.3.19",
-    "coveralls": "^2.11.4",
+    "coveralls": "^2.11.7",
     "generator-supported": "0.0.1",
     "q": "^1.4.1"
   },
