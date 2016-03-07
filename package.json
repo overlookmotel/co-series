@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "co-use": "^1.1.0",
-    "bluebird": "^2.10.0",
+    "bluebird": "^3.3.4",
     "is-generator": "^1.0.2"
   },
   "devDependencies": {
