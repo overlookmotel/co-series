@@ -6,15 +6,19 @@ language: node_js
 node_js:
   - "0.10"
   - "0.12"
+  - "4"
+  - "5"
 
 env:
   - TEST_SUITE=test
-  - TEST_SUITE=test-harmony
 
 matrix:
   fast_finish: true
   include:
     - node_js: "0.12"
+      env:
+        - TEST_SUITE=test-harmony
+    - node_js: "4"
       env:
         - TEST_SUITE=test-harmony
         - COVERAGE=true
