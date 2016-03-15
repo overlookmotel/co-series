@@ -33,3 +33,4 @@ Breaking changes:
 ## Next
 
 * Use native JS Promise instead of Bluebird
+* Update dev dependencies
