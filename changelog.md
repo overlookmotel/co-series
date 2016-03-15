@@ -29,3 +29,7 @@
 Breaking changes:
 
 * Function is called immediately on first iteration (previously it executed on next tick)
+
+## Next
+
+* Use native JS Promise instead of Bluebird

@@ -6,7 +6,7 @@
 // modules
 var chai = require('chai'),
 	expect = chai.expect,
-	Promise = require('bluebird'),
+	Promise = global.Promise || require('bluebird'),
 	Q = require('q'),
 	series = require('../lib/');
 

@@ -6,13 +6,19 @@
 // modules
 var chai = require('chai'),
 	expect = chai.expect,
-	Promise = require('bluebird'),
+	Promise = global.Promise,
 	Q = require('q'),
 	generatorSupported = require('generator-supported'),
 	series = require('../lib/');
 
 // init
 chai.config.includeStack = true;
+
+// use Bluebird if no native promise (e.g. Node v0.10)
+if (!Promise) {
+	Promise = require('bluebird');
+	series = series.use(Promise);
+}
 
 // tests
 
