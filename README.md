@@ -10,13 +10,13 @@
 [![Dev dependency Status](https://img.shields.io/david/dev/overlookmotel/co-series.svg)](https://david-dm.org/overlookmotel/co-series)
 [![Coverage Status](https://img.shields.io/coveralls/overlookmotel/co-series/master.svg)](https://coveralls.io/r/overlookmotel/co-series)
 
-API is not yet stable. May change in v0.1.0.
+v3.x.x uses native JS Promises rather than Bluebird by default. If you prefer Bluebird, use [co-series-bluebird](https://www.npmjs.com/package/co-series-bluebird).
 
 ## Usage
 
-This small module shims a function to ensure it queues each execution after the the previous execution is complete.
+This small module shims an asynchronous function to ensure it queues each execution after the the previous execution is complete.
 
-Really comes into it's own when used in conjuction with co and generators. Then you can use native flow control methods (or something like lodash) to control execution.
+Really comes into it's own when used in conjunction with co and generators. Then you can use native flow control methods (or something like [lodash](https://www.npmjs.com/package/lodash)) to control execution.
 
 ### Generators
 
@@ -111,7 +111,7 @@ order.push('sync');
 
 ### `series.use(Promise)`
 
-Creates a new instance of `co-series`, which uses the Promise implementation provided.
+Creates a new instance of `co-series`, which uses the Promise implementation provided (by default `co-series` uses native JS promises).
 
 ```js
 var Bluebird = require('bluebird');
@@ -125,9 +125,11 @@ var promise = fn();
 console.log(promise instanceof Bluebird); // true
 ```
 
+If `.use()` is called without an argument, a new instance of `co-series` is created using native JS Promises.
+
 ## Tests
 
-Use `npm test` to run the tests or `npm run test-harmony` to include generator tests.
+Use `npm test` to run the tests (or `npm run test-harmony` on Node v0.12.x).
 Use `npm run cover` to check coverage.
 
 ## Changelog

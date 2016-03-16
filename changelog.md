@@ -35,3 +35,4 @@ Breaking changes:
 * Use native JS Promise instead of Bluebird
 * Update dev dependencies
 * Travis tests against Node v4 + v5
+* README update
