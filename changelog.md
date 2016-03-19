@@ -44,6 +44,6 @@ Breaking changes:
 
 * Remove foo.js from npm
 
-## Next
+## 3.0.2
 
 * Remove harmony flag from coveralls run script
