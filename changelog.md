@@ -43,3 +43,7 @@ Breaking changes:
 ## 3.0.1
 
 * Remove foo.js from npm
+
+## Next
+
+* Remove harmony flag from coveralls run script

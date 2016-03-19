@@ -14,7 +14,7 @@ ifeq (true,$(COVERAGE))
 test:
 	make coveralls
 test-harmony:
-	make coveralls-harmony
+	make coveralls
 else
 test:
 	make tests
@@ -41,18 +41,12 @@ jshint:
 
 cover:
 	make teaser; \
-	node --harmony node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec $(TESTS); \
-	rm -rf coverage
+	./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec $(TESTS); \
+	rm -rf ./coverage
 
 coveralls:
-	./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec; \
-	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; \
+	./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec; \
+	cat ./coverage/lcov.info | ./node_modules/.bin/coveralls; \
 	rm -rf ./coverage
 
-# coveralls-harmony does not work
-coveralls-harmony:
-	node --harmony node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha --harmony --report lcovonly -- -R spec; \
-	cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js; \
-	rm -rf ./coverage
-
-.PHONY: test test-harmony tests tests-harmony cover coveralls coveralls-harmony
+.PHONY: test test-harmony tests tests-harmony cover coveralls
