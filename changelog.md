@@ -40,6 +40,6 @@ Breaking changes:
 * README update
 * package.json license field
 
-## Next
+## 3.0.1
 
 * Remove foo.js from npm
