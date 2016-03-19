@@ -39,3 +39,7 @@ Breaking changes:
 * Travis tests against Node v4 + v5
 * README update
 * package.json license field
+
+## Next
+
+* Remove foo.js from npm
