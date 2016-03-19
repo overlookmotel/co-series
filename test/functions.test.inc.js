@@ -27,6 +27,26 @@ runTests(order,
 			return i + '-' + j;
 		});
 	},
+	function(i) {
+		order.push('start' + i);
+
+		if (i > 1) throw new Error('error' + i);
+
+		return Promise.resolve().then(function() {
+			order.push('end' + i);
+			return i * 10;
+		});
+	},
+	function(i) {
+		order.push('start' + i);
+
+		return Promise.resolve().then(function() {
+			if (i > 1) throw new Error('error' + i);
+
+			order.push('end' + i);
+			return i * 10;
+		});
+	},
 	function() {
 		return Promise.resolve();
 	}

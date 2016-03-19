@@ -26,6 +26,25 @@ runTests(order,
 		yield Promise.resolve();
 		return i + '-' + this.j;
 	},
+	function*(i) {
+		order.push('start' + i);
+
+		if (i > 1) throw new Error('error' + i);
+
+		yield Promise.resolve();
+		order.push('end' + i);
+		return i * 10;
+	},
+	function*(i) {
+		order.push('start' + i);
+
+		yield Promise.resolve();
+
+		if (i > 1) throw new Error('error' + i);
+
+		order.push('end' + i);
+		return i * 10;
+	},
 	function*() {
 		yield Promise.resolve();
 	}

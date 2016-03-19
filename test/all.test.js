@@ -5,10 +5,12 @@
 
 // modules
 var chai = require('chai'),
+	chaiAsPromised = require('chai-as-promised'),
 	generatorSupported = require('generator-supported');
 
 // init
 chai.config.includeStack = true;
+chai.use(chaiAsPromised);
 
 // tests
 
