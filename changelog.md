@@ -36,3 +36,4 @@ Breaking changes:
 * Update dev dependencies
 * Travis tests against Node v4 + v5
 * README update
+* package.json license field
