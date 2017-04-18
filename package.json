@@ -14,6 +14,7 @@
     "url": "https://github.com/overlookmotel/co-series/issues"
   },
   "dependencies": {
+    "bluebird": "^3.3.1",
     "co-use": "^1.1.0",
     "is-generator": "^1.0.2"
   },
