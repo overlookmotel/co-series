@@ -1,5 +1,7 @@
 # co-series.js
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/overlookmotel/co-series.svg)](https://greenkeeper.io/)
+
 # Run in series with co
 
 ## Current status
